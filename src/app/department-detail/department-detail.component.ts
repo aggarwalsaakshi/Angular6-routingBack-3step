@@ -1,17 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router,Params } from '@angular/router';	
 @Component({
   selector: 'app-department-detail',
   templateUrl: './department-detail.component.html',
   styleUrls: ['./department-detail.component.css']
 })
-export class DepartmentDetailComponent implements OnInit {
+export class DepartmentDetailComponent  implements OnInit   {
 public dapartmentId;
-  constructor(private route: ActivatedRoute) { }
-
+  constructor(private route: ActivatedRoute , private router: Router) { }
   ngOnInit() {
-  let id = this.route.snapshot.params['id'];
-  this.dapartmentId=id;;
-  }
+   this.route.params.subscribe((params:Params)=>{
+   let id=parseInt(params['id']);
+ this.dapartmentId=id;
+   })
+   }
 
+getPrevious()
+{
+
+	let previousId=parseInt(this.dapartmentId)-1;
+	this.router.navigate(['/departments',previousId]);
+}
+getNext(){	
+	let nextId=parseInt(this.dapartmentId)+1;
+	this.router.navigate(['/departments',nextId]);
+	}
+
+goDepartments(){
+console.log("**************");
+	let selectedId = parseInt(this.dapartmentId) ? parseInt(this.dapartmentId):null;
+	console.log(selectedId);
+	this.router.navigate(['/department-list',{id: selectedId; random :"random"}]);
+}
 }
