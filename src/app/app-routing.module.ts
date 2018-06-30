@@ -6,10 +6,10 @@ import { DepartmentDetailComponent } from './department-detail/department-detail
 
  const routes : Routes = [
 {
-	path: 'employee-list', component: EmployeeListComponent
+	path: 'employee', component: EmployeeListComponent
 },
 {
-	path: 'department-list', component: DepartmentListComponent
+	path: 'department', component: DepartmentListComponent
 },
 {
 	path: 'departments/:id', component: DepartmentDetailComponent

@@ -27,9 +27,7 @@ getNext(){
 	}
 
 goDepartments(){
-console.log("**************");
 	let selectedId = parseInt(this.dapartmentId) ? parseInt(this.dapartmentId):null;
-	console.log(selectedId);
-	this.router.navigate(['/department-list',{id: selectedId; random :"random"}]);
+	this.router.navigate(['/department',{id: selectedId; random :"random"}]);
 }
 }
